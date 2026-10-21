@@ -1,0 +1,14 @@
+[package]
+name = "fnbr-sched-entropia"
+version = "0.1.0"
+edition = "2021"
+description = "Prioriza hilos de agentes por entropía de prompt y urgencia de consenso"
+license = "MIT"
+
+[[bin]]
+name = "fnbr-sched"
+path = "src/main.rs"
+
+[lib]
+name = "fnbr_sched_entropia"
+path = "src/lib.rs"
