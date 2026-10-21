@@ -1,0 +1,70 @@
+== uname: 6.14.0-37-generic  nproc: 2
+enable_seq   hotplug_seq  nr_rejected  state        switch_all
+== sched_ext state: disabled
+== rep 1 fase A (sin sched_ext) ops=
+RESULT base rep=1 A=251 B=251 C=251 D=250
+scx_entropia: struct_ops 'fnbr_entropia' adjuntado; mapa en /sys/fs/bpf/fnbr_agent_weight
+== state=enabled ops=fnbr_entropia enable_seq=1
+{"pid":147,"cpu_weight":846,"score":0.8381,"entropy_bits":5.3622,"urgency":0.9500,"map":"/sys/fs/bpf/fnbr_agent_weight"}
+{"pid":149,"cpu_weight":514,"score":0.4885,"entropy_bits":3.7709,"urgency":0.5000,"map":"/sys/fs/bpf/fnbr_agent_weight"}
+{"pid":151,"cpu_weight":182,"score":0.1392,"entropy_bits":1.5843,"urgency":0.1000,"map":"/sys/fs/bpf/fnbr_agent_weight"}
+{"pid":153,"cpu_weight":50,"score":0.0000,"entropy_bits":-0.0000,"urgency":0.0000,"map":"/sys/fs/bpf/fnbr_agent_weight"}
+RESULT scx rep=1 A=508 B=341 C=122 D=33
+scx_entropia: stats enqueue_con_peso=532 enqueue_sin_mapa=176 directo_ocioso=400
+scx_entropia: desadjuntado
+== tras desadjuntar: state=disabled
+== rep 2 fase A (sin sched_ext) ops=
+RESULT base rep=2 A=251 B=251 C=251 D=251
+scx_entropia: struct_ops 'fnbr_entropia' adjuntado; mapa en /sys/fs/bpf/fnbr_agent_weight
+== state=enabled ops=fnbr_entropia enable_seq=2
+{"pid":221,"cpu_weight":846,"score":0.8381,"entropy_bits":5.3622,"urgency":0.9500,"map":"/sys/fs/bpf/fnbr_agent_weight"}
+{"pid":223,"cpu_weight":514,"score":0.4885,"entropy_bits":3.7709,"urgency":0.5000,"map":"/sys/fs/bpf/fnbr_agent_weight"}
+{"pid":225,"cpu_weight":182,"score":0.1392,"entropy_bits":1.5843,"urgency":0.1000,"map":"/sys/fs/bpf/fnbr_agent_weight"}
+{"pid":227,"cpu_weight":50,"score":0.0000,"entropy_bits":-0.0000,"urgency":0.0000,"map":"/sys/fs/bpf/fnbr_agent_weight"}
+RESULT scx rep=2 A=508 B=344 C=123 D=31
+scx_entropia: stats enqueue_con_peso=526 enqueue_sin_mapa=173 directo_ocioso=392
+scx_entropia: desadjuntado
+== tras desadjuntar: state=disabled
+== rep 3 fase A (sin sched_ext) ops=
+RESULT base rep=3 A=252 B=251 C=253 D=253
+scx_entropia: struct_ops 'fnbr_entropia' adjuntado; mapa en /sys/fs/bpf/fnbr_agent_weight
+== state=enabled ops=fnbr_entropia enable_seq=3
+{"pid":299,"cpu_weight":846,"score":0.8381,"entropy_bits":5.3622,"urgency":0.9500,"map":"/sys/fs/bpf/fnbr_agent_weight"}
+{"pid":301,"cpu_weight":514,"score":0.4885,"entropy_bits":3.7709,"urgency":0.5000,"map":"/sys/fs/bpf/fnbr_agent_weight"}
+{"pid":303,"cpu_weight":182,"score":0.1392,"entropy_bits":1.5843,"urgency":0.1000,"map":"/sys/fs/bpf/fnbr_agent_weight"}
+{"pid":305,"cpu_weight":50,"score":0.0000,"entropy_bits":-0.0000,"urgency":0.0000,"map":"/sys/fs/bpf/fnbr_agent_weight"}
+RESULT scx rep=3 A=508 B=339 C=121 D=35
+scx_entropia: stats enqueue_con_peso=531 enqueue_sin_mapa=175 directo_ocioso=385
+scx_entropia: desadjuntado
+== tras desadjuntar: state=disabled
+== rep 4 fase A (sin sched_ext) ops=
+RESULT base rep=4 A=251 B=251 C=251 D=251
+scx_entropia: struct_ops 'fnbr_entropia' adjuntado; mapa en /sys/fs/bpf/fnbr_agent_weight
+== state=enabled ops=fnbr_entropia enable_seq=4
+{"pid":373,"cpu_weight":846,"score":0.8381,"entropy_bits":5.3622,"urgency":0.9500,"map":"/sys/fs/bpf/fnbr_agent_weight"}
+{"pid":375,"cpu_weight":514,"score":0.4885,"entropy_bits":3.7709,"urgency":0.5000,"map":"/sys/fs/bpf/fnbr_agent_weight"}
+{"pid":377,"cpu_weight":182,"score":0.1392,"entropy_bits":1.5843,"urgency":0.1000,"map":"/sys/fs/bpf/fnbr_agent_weight"}
+{"pid":379,"cpu_weight":50,"score":0.0000,"entropy_bits":-0.0000,"urgency":0.0000,"map":"/sys/fs/bpf/fnbr_agent_weight"}
+RESULT scx rep=4 A=509 B=340 C=121 D=34
+scx_entropia: stats enqueue_con_peso=532 enqueue_sin_mapa=178 directo_ocioso=391
+scx_entropia: desadjuntado
+== tras desadjuntar: state=disabled
+== rep 5 fase A (sin sched_ext) ops=
+RESULT base rep=5 A=251 B=251 C=252 D=252
+scx_entropia: struct_ops 'fnbr_entropia' adjuntado; mapa en /sys/fs/bpf/fnbr_agent_weight
+== state=enabled ops=fnbr_entropia enable_seq=5
+{"pid":447,"cpu_weight":846,"score":0.8381,"entropy_bits":5.3622,"urgency":0.9500,"map":"/sys/fs/bpf/fnbr_agent_weight"}
+{"pid":449,"cpu_weight":514,"score":0.4885,"entropy_bits":3.7709,"urgency":0.5000,"map":"/sys/fs/bpf/fnbr_agent_weight"}
+{"pid":451,"cpu_weight":182,"score":0.1392,"entropy_bits":1.5843,"urgency":0.1000,"map":"/sys/fs/bpf/fnbr_agent_weight"}
+{"pid":453,"cpu_weight":50,"score":0.0000,"entropy_bits":-0.0000,"urgency":0.0000,"map":"/sys/fs/bpf/fnbr_agent_weight"}
+RESULT scx rep=5 A=507 B=343 C=122 D=33
+scx_entropia: stats enqueue_con_peso=532 enqueue_sin_mapa=185 directo_ocioso=384
+scx_entropia: desadjuntado
+== tras desadjuntar: state=disabled
+[   73.117086] sched_ext: BPF scheduler "fnbr_entropia" disabled (unregistered from user space)
+[   84.535566] sched_ext: BPF scheduler "fnbr_entropia" enabled
+[   95.852127] sched_ext: BPF scheduler "fnbr_entropia" disabled (unregistered from user space)
+[  107.369756] sched_ext: BPF scheduler "fnbr_entropia" enabled
+[  118.700125] sched_ext: BPF scheduler "fnbr_entropia" disabled (unregistered from user space)
+== FIN
+[  118.771225] reboot: Power down

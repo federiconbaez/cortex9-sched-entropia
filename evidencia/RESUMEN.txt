@@ -1,0 +1,15 @@
+reps: base=5 scx=5
+
+[base]  agente  peso  cuota_esperada  cuota_medida(media±sd)
+         A      846    25.00%         24.99% ± 0.03
+         B      514    25.00%         24.97% ± 0.05
+         C      182    25.00%         25.03% ± 0.03
+         D       50    25.00%         25.01% ± 0.05
+   ratio A/D (alta/baja prioridad): 1.00 (min 1.00, max 1.00); esperado 16.92 en scx, 1.00 en base
+
+[scx]  agente  peso  cuota_esperada  cuota_medida(media±sd)
+         A      846    53.14%         50.58% ± 0.09
+         B      514    32.29%         33.99% ± 0.15
+         C      182    11.43%         12.13% ± 0.06
+         D       50     3.14%          3.31% ± 0.14
+   ratio A/D (alta/baja prioridad): 15.33 (min 14.51, max 16.39); esperado 16.92 en scx, 1.00 en base

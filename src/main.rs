@@ -2,7 +2,8 @@
 //!   fnbr-sched score --prompt "..." --urgency 0.8
 //!   fnbr-sched apply --name agente-a --prompt "..." --urgency 0.8
 //!   fnbr-sched bench --seconds 2
-use fnbr_sched_entropia::{cgroup, score, ScoreConfig};
+//!   fnbr-sched scx-set --pid 1234 --prompt "..." --urgency 0.8 [--map /sys/fs/bpf/fnbr_agent_weight]
+use fnbr_sched_entropia::{bpfmap, cgroup, score, ScoreConfig};
 use std::env;
 use std::io::{self, Write};
 use std::process::{Command, ExitCode, Stdio};
@@ -11,7 +12,7 @@ use std::time::Instant;
 
 fn usage() {
     eprintln!(
-        "uso:\n  fnbr-sched score  --prompt TEXT --urgency F\n  fnbr-sched apply  --name NAME --prompt TEXT --urgency F\n  fnbr-sched bench  [--seconds N]"
+        "uso:\n  fnbr-sched score  --prompt TEXT --urgency F\n  fnbr-sched apply  --name NAME --prompt TEXT --urgency F\n  fnbr-sched bench  [--seconds N]\n  fnbr-sched scx-set --pid PID --prompt TEXT --urgency F [--map PIN]"
     );
 }
 
@@ -138,12 +139,52 @@ fn cmd_bench(args: &[String]) -> ExitCode {
     }
 }
 
+/// Calcula el peso con el scoring de entropía/urgencia y lo escribe en el
+/// mapa `agent_weight` del planificador sched_ext cargado.
+fn cmd_scx_set(args: &[String]) -> ExitCode {
+    let pid: u32 = match parse_kv(args, "--pid").and_then(|s| s.parse().ok()) {
+        Some(p) => p,
+        None => {
+            eprintln!("falta --pid");
+            return ExitCode::from(2);
+        }
+    };
+    let prompt = parse_kv(args, "--prompt").unwrap_or_default();
+    let urgency: f64 = parse_kv(args, "--urgency")
+        .and_then(|s| s.parse().ok())
+        .unwrap_or(0.5);
+    let pin = parse_kv(args, "--map").unwrap_or_else(|| bpfmap::DEFAULT_PIN.to_string());
+    let p = score(prompt.as_bytes(), urgency, &ScoreConfig::default());
+    let res = bpfmap::PinnedMap::open(&pin).and_then(|m| {
+        m.set_weight(pid, p.cpu_weight)?;
+        m.get_weight(pid)
+    });
+    match res {
+        Ok(Some(back)) if back == p.cpu_weight => {
+            println!(
+                "{{\"pid\":{},\"cpu_weight\":{},\"score\":{:.4},\"entropy_bits\":{:.4},\"urgency\":{:.4},\"map\":\"{}\"}}",
+                pid, p.cpu_weight, p.score, p.entropy_bits, p.urgency, pin
+            );
+            ExitCode::SUCCESS
+        }
+        Ok(other) => {
+            eprintln!("lectura de verificación no coincide: {other:?}");
+            ExitCode::from(1)
+        }
+        Err(e) => {
+            eprintln!("no pude escribir el mapa {pin}: {e} (¿está cargado scx_entropia?)");
+            ExitCode::from(1)
+        }
+    }
+}
+
 fn main() -> ExitCode {
     let args: Vec<String> = env::args().skip(1).collect();
     match args.first().map(String::as_str) {
         Some("score") => cmd_score(&args),
         Some("apply") => cmd_apply(&args),
         Some("bench") => cmd_bench(&args),
+        Some("scx-set") => cmd_scx_set(&args),
         _ => {
             usage();
             ExitCode::from(2)

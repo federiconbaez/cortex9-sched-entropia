@@ -1,1 +1,6 @@
 target/
+# generados por vm/preparar.sh
+scx/vmlinux.h
+scx/*.o
+scx/*.skel.h
+scx/scx_entropia
