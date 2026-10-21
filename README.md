@@ -18,7 +18,7 @@ entropía de sus prompts o la urgencia de su consenso epistémico.
 - `cargo clippy --all-targets -- -D warnings`: limpio.
 - `cargo test --release`: 5/5.
 - `clang -target bpf` produce `bpf/sched_entropia.bpf.o`.
-- Bench (sudo, 4 s, CPU0): ratio nice(-10)/nice(15) ≈ **1.58** (> 1.2). Prioridad efectiva sí se mide.
+- Bench (sudo, 4 s, CPU0): ratio nice(-10)/nice(15) ≈ **3.04** (> 1.2). Prioridad efectiva sí se mide.
 
 ## Lo que NO está verificado
 - **`sched_ext` no existe** (`/sys/kernel/sched_ext` ausente). El scheduler eBPF pedido
