@@ -1,5 +1,11 @@
 # 01 — Planificador por entropía / consenso
 
+> **ES:** Planificador `sched_ext` (eBPF + Rust) que pondera hilos de agentes por entropía del prompt y urgencia. Compilar/probar: `cargo build --release && cargo test --release`.
+> **EN:** `sched_ext` (eBPF + Rust) scheduler weighting agent threads by prompt entropy and urgency. Build/test: `cargo build --release && cargo test --release`.
+>
+> **Estado / Status:** cargado en una VM QEMU (kernel 6.14) y 7/7 tests; experimento de valor **no auditado** / value experiment **not audited**. Licencia / License: Apache-2.0.
+
+
 Dueña: **Federica Research Sentinel**. Pedido de Federico, 20/10/2026.
 
 ## Qué pediste
